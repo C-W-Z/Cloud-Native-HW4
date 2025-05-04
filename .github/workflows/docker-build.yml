@@ -1,6 +1,8 @@
 name: Docker Build and Push
 on:
   push:
+    paths-ignore:
+      - 'README.md'  # 忽略 README.md 的變更
 jobs:
   build-and-push:
     runs-on: ubuntu-latest

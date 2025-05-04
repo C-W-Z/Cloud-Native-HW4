@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY . .
 
-CMD ["python", "--version"]
+CMD ["python", "test.py"]
