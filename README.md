@@ -17,7 +17,7 @@ docker build -t 2025cloud:tmp .
 ```sh
 docker run 2025cloud:tmp
 ```
-或
+或（建議）
 ```sh
 docker run --rm 2025cloud:tmp
 ```
