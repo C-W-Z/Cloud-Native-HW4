@@ -11,13 +11,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build Docker Image
+      - name: Build and Push Docker Image
         run: |
+          # 生成時間戳（只生成一次）
           TIMESTAMP=$(date -u +"%Y-%m-%dT%H-%M-%S")
+          # 動態獲取分支名稱，並替換斜杠為連字符
           BRANCH_NAME=$(echo ${{ github.ref_name }} | sed 's/\//-/g')
+          # 構建 Docker Image，確保生成標籤
           docker build -t cwz3021/2025cloud:${BRANCH_NAME}-${TIMESTAMP} .
-      - name: Push Docker Image
-        run: |
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H-%M-%S")
-          BRANCH_NAME=$(echo ${{ github.ref_name }} | sed 's/\//-/g')
+          # 推送 Docker Image，使用相同的標籤
           docker push cwz3021/2025cloud:${BRANCH_NAME}-${TIMESTAMP}
+        shell: /usr/bin/bash -e {0}
