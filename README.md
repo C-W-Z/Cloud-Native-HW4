@@ -1,5 +1,9 @@
 # 2025cloud
 
+## Docker Hub: cwz3021/2025cloud
+
+https://hub.docker.com/repository/docker/cwz3021/2025cloud/general
+
 ## Docker Build 方式
 
 ```sh
@@ -13,3 +17,9 @@ docker build -t 2025cloud:tmp .
 ```sh
 docker run 2025cloud:tmp
 ```
+
+## GitHub Action
+
+每次git push（除非只更新README.md）時，GitHubAction會自動執行，build docker image並push到Docker Hub
+
+其中必定產生tag，而格式是`${BRANCH_NAME}-${TIMESTAMP}`，也就是當前git push的分支名稱加上時間
