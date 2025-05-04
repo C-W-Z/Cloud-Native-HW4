@@ -17,6 +17,10 @@ docker build -t 2025cloud:tmp .
 ```sh
 docker run 2025cloud:tmp
 ```
+或
+```sh
+docker run --rm 2025cloud:tmp
+```
 
 ## GitHub Action
 
